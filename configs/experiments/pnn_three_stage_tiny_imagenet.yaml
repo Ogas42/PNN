@@ -1,0 +1,5 @@
+base: pnn_tiny_imagenet.yaml
+name: pnn_three_stage_tiny_imagenet
+model:
+  insert_layers: [3, 6, 9]
+  keep_ratios: [0.7, 0.5, 0.3]

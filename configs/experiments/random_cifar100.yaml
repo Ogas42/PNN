@@ -1,0 +1,4 @@
+base: pnn_cifar100.yaml
+name: random_cifar100
+model:
+  method: random

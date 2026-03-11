@@ -1,0 +1,5 @@
+base: pnn_cifar100.yaml
+name: pnn_three_stage_cifar100
+model:
+  insert_layers: [3, 6, 9]
+  keep_ratios: [0.7, 0.5, 0.3]

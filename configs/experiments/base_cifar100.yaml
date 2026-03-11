@@ -1,0 +1,6 @@
+base: pnn_cifar100.yaml
+name: base_cifar100
+model:
+  method: base
+  insert_layers: []
+  keep_ratios: []

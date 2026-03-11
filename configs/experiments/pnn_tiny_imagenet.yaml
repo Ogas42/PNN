@@ -1,0 +1,45 @@
+name: pnn_tiny_imagenet
+dataset:
+  name: tiny_imagenet
+  root: ./data
+  image_size: 224
+  num_classes: 200
+  batch_size: 16
+  eval_batch_size: 32
+  epochs: 120
+  grad_accumulation: 2
+  num_workers: 4
+  download: false
+  probe_samples: 64
+model:
+  model_name: deit_tiny_patch16_224
+  method: pnn
+  pretrained: true
+  num_classes: 200
+  insert_layers: [6]
+  keep_ratios: [0.5]
+  score_hidden_dim: 96
+  pnn:
+    groups: 16
+    steps: 4
+    dt: 0.2
+    gamma: 0.2
+    mu: 1.0
+    eps: 1.0e-4
+    keep_ratio: 0.5
+    symmetric: true
+    sparse_lambda: 0.01
+    stable_lambda: 0.05
+    use_dynamics: true
+    use_pressure: true
+optim:
+  lr: 3.0e-4
+  weight_decay: 0.05
+  warmup_epochs: 5
+  label_smoothing: 0.1
+  amp: true
+  grad_clip: 1.0
+  seed: 42
+logging:
+  log_interval: 20
+  checkpoint_interval: 10

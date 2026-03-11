@@ -1,0 +1,6 @@
+base: pnn_tiny_imagenet.yaml
+name: base_tiny_imagenet
+model:
+  method: base
+  insert_layers: []
+  keep_ratios: []

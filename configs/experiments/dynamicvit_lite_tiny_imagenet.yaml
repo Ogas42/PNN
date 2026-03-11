@@ -1,0 +1,4 @@
+base: pnn_tiny_imagenet.yaml
+name: dynamicvit_lite_tiny_imagenet
+model:
+  method: dynamicvit_lite
