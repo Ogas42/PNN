@@ -2,10 +2,10 @@ name: tiny_imagenet
 root: ./data
 image_size: 224
 num_classes: 200
-batch_size: 16
-eval_batch_size: 32
+batch_size: 64
+eval_batch_size: 128
 epochs: 120
-grad_accumulation: 2
+grad_accumulation: 1
 num_workers: 4
 download: false
 probe_samples: 64

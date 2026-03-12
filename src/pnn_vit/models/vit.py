@@ -21,6 +21,7 @@ class BlockRecord:
     D_hist: torch.Tensor
     Q_hist: torch.Tensor
     A: torch.Tensor
+    diagnostics: dict[str, torch.Tensor]
     aux_losses: dict[str, torch.Tensor]
 
 
@@ -114,6 +115,10 @@ class PrunedBlock(nn.Module):
             D_hist=router_output.D_hist.detach().cpu() if capture_router else torch.empty(0),
             Q_hist=router_output.Q_hist.detach().cpu() if capture_router else torch.empty(0),
             A=router_output.A.detach().cpu() if capture_router else torch.empty(0),
+            diagnostics={
+                key: value.detach().cpu() if torch.is_tensor(value) else value
+                for key, value in router_output.diagnostics.items()
+            },
             aux_losses=router_output.aux_losses,
         )
         return output_tokens, kept_patch_indices, record

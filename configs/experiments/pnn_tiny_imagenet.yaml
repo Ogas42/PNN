@@ -4,10 +4,10 @@ dataset:
   root: ./data
   image_size: 224
   num_classes: 200
-  batch_size: 16
-  eval_batch_size: 32
+  batch_size: 64
+  eval_batch_size: 128
   epochs: 120
-  grad_accumulation: 2
+  grad_accumulation: 1
   num_workers: 4
   download: false
   probe_samples: 64
@@ -32,6 +32,10 @@ model:
     stable_lambda: 0.05
     use_dynamics: true
     use_pressure: true
+    conductance_tau: 2.0
+    conductance_floor: 0.05
+    flow_score_weight: 1.0
+    local_score_weight: 0.25
 optim:
   lr: 3.0e-4
   weight_decay: 0.05

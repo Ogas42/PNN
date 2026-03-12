@@ -135,6 +135,12 @@ def main() -> None:
         if not outputs["records"]:
             continue
         record = outputs["records"][0]
+        print(
+            f"sample {idx}: "
+            f"D0_mean={float(record.diagnostics['initial_mean']):.4f}, "
+            f"DT_mean={float(record.diagnostics['final_mean']):.4f}, "
+            f"flow_mean={float(record.diagnostics['flow_mean']):.4f}"
+        )
         draw_conductance_heatmaps(record, output_dir, prefix=f"sample_{idx:03d}")
         draw_token_overlay(sample["image"], record.original_keep_mask[0], model.grid_shape, output_dir / f"sample_{idx:03d}_tokens.png")
         if compare_model is not None:

@@ -17,3 +17,7 @@ pnn:
   stable_lambda: 0.05
   use_dynamics: true
   use_pressure: true
+  conductance_tau: 2.0
+  conductance_floor: 0.05
+  flow_score_weight: 1.0
+  local_score_weight: 0.25

@@ -40,7 +40,7 @@ class IndexedDataset(Dataset):
 
     def __getitem__(self, index: int) -> dict[str, Any]:
         image, label = self.base[index]
-        path = None
+        path = ""
         if hasattr(self.base, "samples"):
             path = self.base.samples[index][0]
         return {"image": image, "label": label, "index": index, "path": path}

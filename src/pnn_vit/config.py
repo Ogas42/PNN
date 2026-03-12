@@ -47,6 +47,10 @@ class PNNConfig:
     stable_lambda: float = 0.05
     use_dynamics: bool = True
     use_pressure: bool = True
+    conductance_tau: float = 2.0
+    conductance_floor: float = 0.05
+    flow_score_weight: float = 1.0
+    local_score_weight: float = 0.25
 
 
 @dataclass
